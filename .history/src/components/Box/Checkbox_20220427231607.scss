@@ -1,0 +1,44 @@
+@import .checkbox_input {
+  display: none;
+}
+
+.checkbox_input:checked + .checkbox_label::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.checkbox_label {
+  position: relative;
+  padding-left: 50px;
+  cursor: pointer;
+}
+
+.checkbox_label::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: $primary-color;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+}
+
+.checkbox_label::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 6px;
+  width: 20px;
+  height: 10px;
+  transform: rotate(-45deg);
+  border-left: 3px solid white;
+  border-bottom: 3px solid white;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s linear;
+}

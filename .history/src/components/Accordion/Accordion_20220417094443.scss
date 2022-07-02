@@ -1,0 +1,28 @@
+@import .accordion {
+  max-width: 500px;
+  margin-bottom: 20px;
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #292e49;
+    font-weight: 600;
+    border: 1px solid $primary-color;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  &-content {
+    height: 0;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    &--active {
+      margin-top: 15px;
+      padding: 5px 10px;
+      line-height: 1.5;
+      font-size: 14px;
+      border: 1px solid $primary-color;
+      height: auto;
+    }
+  }
+}

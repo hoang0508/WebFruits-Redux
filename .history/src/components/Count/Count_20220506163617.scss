@@ -1,0 +1,16 @@
+@import .count {
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $bgr-color;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  &-value {
+    width: 100px;
+    text-align: center;
+    background: inherit;
+    font-size: 18px;
+  }
+}

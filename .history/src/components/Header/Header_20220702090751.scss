@@ -1,0 +1,128 @@
+@import "../../../src/styles/index.scss";
+.header {
+  &-contact {
+    border-bottom: 1px solid #eee;
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+  }
+  &-info {
+    display: flex;
+    align-items: center;
+    gap: 0 25px;
+    &--add {
+      display: flex;
+      align-items: center;
+      gap: 0 10px;
+    }
+    &--gmail {
+      display: flex;
+      align-items: center;
+      gap: 0 10px;
+    }
+    &--icon {
+      color: $primary-color;
+    }
+  }
+  &-social {
+    display: flex;
+    align-items: center;
+    gap: 0 15px;
+    span {
+      border: 1px solid #f3f3f3;
+      width: 35px;
+      height: 35px;
+      border-radius: 100rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s linear;
+      &:hover {
+        background-color: $primary-color;
+        color: #fff;
+        transform: translateY(-5px);
+        cursor: pointer;
+      }
+    }
+  }
+  &-nav {
+    padding: 20px 0;
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  &-menu {
+    display: flex;
+    align-items: center;
+    gap: 0 30px;
+    &--list {
+      display: flex;
+      align-items: center;
+      gap: 0 30px;
+    }
+    &--link {
+      color: $text-color--tx;
+      font-weight: 500;
+    }
+  }
+  &-cart {
+    position: relative;
+    &--icon {
+      color: $text-color--tx;
+      font-size: 28px;
+    }
+    &--number {
+      position: absolute;
+      top: -20%;
+      right: -25%;
+      background-color: $primary-color;
+      color: #fff;
+      width: 15px;
+      height: 15px;
+      border-radius: 100rem;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  &-auth {
+    display: flex;
+    align-items: center;
+    gap: 0 20px;
+  }
+  .button-sign {
+    padding: 15px 30px;
+    background-color: $primary-color;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
+
+.is-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: #fff;
+  box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.09);
+  animation: fadeInDown 0.5s linear forwards;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

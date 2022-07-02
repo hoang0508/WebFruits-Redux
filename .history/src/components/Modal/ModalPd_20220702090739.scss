@@ -1,0 +1,33 @@
+@import "../../../src/styles/index.scss";
+.modalP {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 20;
+  &-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 850px;
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    position: relative;
+    &--close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: $primary-color;
+      color: #fff;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+}

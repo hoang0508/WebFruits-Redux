@@ -1,0 +1,119 @@
+@import "../../index.scss";
+
+.product {
+  margin-top: 80px;
+  padding-bottom: 100px;
+  &-heading {
+    margin-bottom: 50px;
+  }
+  &-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 40px;
+  }
+  &-list--swiper {
+    display: grid;
+  }
+  &-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    &:hover .product-select .product-select--icon {
+      opacity: 1;
+      visibility: visible;
+      transition: all 0.3 linear;
+      transform: translate(0);
+    }
+    &:hover .product-images img {
+      transform: scale(1.1);
+    }
+    &:hover .product-seo {
+      background-color: $primary-color;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+  &-images {
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 25px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      overflow: hidden;
+      border-radius: 5px;
+      transition: all 0.25s linear;
+    }
+  }
+  &-seo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #fff;
+    color: $text-color--tx;
+    padding: 8px 15px;
+    border-radius: 6px;
+    transition: all 0.25s linear;
+  }
+  &-select {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 10px;
+    &--icon {
+      color: $primary-color;
+      background-color: #fff;
+      width: 45px;
+      height: 45px;
+      border-radius: 100rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s linear;
+      transform: translateY(30px);
+    }
+  }
+  &-info {
+    text-align: center;
+  }
+  &-name {
+    font-size: 22px;
+    font-weight: 600;
+    color: $text-color--tx;
+    margin-bottom: 15px;
+    transition: all 0.2s ease;
+    &:hover {
+      color: $primary-color;
+    }
+  }
+  &-price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 10px;
+    margin-bottom: 15px;
+    &--new {
+      color: $primary-color;
+      font-weight: 500;
+    }
+    &--old {
+      text-decoration: line-through;
+    }
+  }
+  &-star {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 5px;
+    color: $primary-color;
+  }
+}
