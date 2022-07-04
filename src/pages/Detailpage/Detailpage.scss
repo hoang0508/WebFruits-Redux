@@ -1,0 +1,30 @@
+.details {
+  &-banner {
+    min-height: 400px;
+    position: relative;
+    z-index: 0;
+  }
+  &-list {
+    margin: 40px 0;
+    .productD--left {
+      width: 40%;
+    }
+    .productD--images {
+      height: 450px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+    }
+    .productD--imgThumb {
+      height: 120px;
+    }
+    .productD-btn {
+      padding: 20px;
+      margin-top: 30px;
+      max-width: 350px;
+    }
+  }
+}
