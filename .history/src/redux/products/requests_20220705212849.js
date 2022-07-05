@@ -10,7 +10,6 @@ import {
 } from "firebase/firestore";
 import { db } from "firebases/Firebase-config";
 
-// product data
 const requestProduct = async (filter) => {
   const colRef = collection(db, "product");
   const newRef = filter
@@ -65,11 +64,10 @@ const requestProductId = async (id) => {
   return sigleDoc.data();
 };
 
-// Delete product
+//
 const requestProductDelete = async (id) => {
   const colRef = doc(db, "product", id);
   await deleteDoc(colRef);
-  return id;
 };
 
 export {

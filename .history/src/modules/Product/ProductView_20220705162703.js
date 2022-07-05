@@ -27,7 +27,7 @@ const ProductView = () => {
   useEffect(() => {
     dispatch(
       getData({
-        type: "all",
+        type: "limit",
       })
     );
   }, [dispatch]);
@@ -139,7 +139,7 @@ const ProductView = () => {
             ))}
         </tbody>
       </Table>
-      {/* <button onClick={() => handleLoadMore()}>Load more</button> */}
+      <button onClick={() => handleLoadMore()}>Load more</button>
     </div>
   );
 };

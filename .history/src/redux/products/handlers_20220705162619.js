@@ -1,5 +1,5 @@
 import { call, put } from "redux-saga/effects";
-import { setData, setDataDetails, setDataFilter } from "./productSlice";
+import { setData, setDataDetails } from "./productSlice";
 import {
   requestProduct,
   requestProductDelete,
@@ -33,12 +33,8 @@ export default function* handleProduct({
       yield put(setData(responseLimit));
       break;
     case "delete":
-      const responseDelete = yield call(requestProductDelete, payload.value);
-      console.log(
-        "🚀 ~ file: handlers.js ~ line 37 ~ responseDelete",
-        responseDelete
-      );
-      yield put(setDataFilter(responseDelete));
+      const responseDelete = yield call(requestProductDelete);
+      yield put(setData(responseDelete));
       break;
     default:
       break;

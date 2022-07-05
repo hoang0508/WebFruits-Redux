@@ -27,7 +27,7 @@ const ProductView = () => {
   useEffect(() => {
     dispatch(
       getData({
-        type: "all",
+        type: "limit",
       })
     );
   }, [dispatch]);

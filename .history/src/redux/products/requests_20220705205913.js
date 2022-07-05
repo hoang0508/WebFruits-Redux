@@ -6,11 +6,11 @@ import {
   query,
   where,
   limit,
+  getDocs,
   deleteDoc,
 } from "firebase/firestore";
 import { db } from "firebases/Firebase-config";
 
-// product data
 const requestProduct = async (filter) => {
   const colRef = collection(db, "product");
   const newRef = filter
@@ -60,16 +60,22 @@ const requestProductLimit = async () => {
 
 //
 const requestProductId = async (id) => {
+  console.log("🚀 ~ file: requests.js ~ line 62 ~ requestProductId ~ id", id);
   const colRef = doc(db, "product", id);
   const sigleDoc = await getDoc(colRef);
   return sigleDoc.data();
 };
 
-// Delete product
+//
 const requestProductDelete = async (id) => {
   const colRef = doc(db, "product", id);
-  await deleteDoc(colRef);
-  return id;
+  const sigleDelete = await deleteDoc(colRef);
+  console.log(
+    "🚀 ~ file: requests.js ~ line 73 ~ requestProductDelete ~ sigleDelete",
+    sigleDelete
+  );
+  return sigleDelete;
+  //  const data = sigleDelete.filter(() => )
 };
 
 export {

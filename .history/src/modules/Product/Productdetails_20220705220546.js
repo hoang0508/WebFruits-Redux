@@ -1,25 +1,28 @@
 import Checkbox from "components/Box/Checkbox";
 import Count from "components/Count/Count";
 import Social from "components/Media/Social";
-import React from "react";
+import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import "./Productdetails.scss";
 import parse from "html-react-parser";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, onSnapshot } from "firebase/firestore";
 import { db } from "firebases/Firebase-config";
 
 const Productdetails = React.memo(() => {
   const navigate = useNavigate();
   const data = useSelector((state) => state.products.dataDetails);
-
   const { count } = useSelector((state) => state.count);
   const handleAddToCart = async (data) => {
     const colRef = collection(db, "cart");
     await addDoc(colRef, {
-      ...data,
-      count,
+      // ...data,
+      id: data.id,
+      name: data.name,
+      image: data.image,
+      count: count,
+      price: data.priceNew,
       totalPrice: count * data.priceNew,
     });
   };

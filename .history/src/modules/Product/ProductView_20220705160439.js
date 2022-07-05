@@ -27,7 +27,7 @@ const ProductView = () => {
   useEffect(() => {
     dispatch(
       getData({
-        type: "all",
+        type: "limit",
       })
     );
   }, [dispatch]);
@@ -67,12 +67,8 @@ const ProductView = () => {
 
   // handleDelete
   const handleActionDelete = async (id) => {
-    dispatch(
-      getData({
-        type: "delete",
-        value: id,
-      })
-    );
+    const colRef = doc(db, "product", id);
+    await deleteDoc(colRef);
   };
   return (
     <div>
@@ -139,7 +135,7 @@ const ProductView = () => {
             ))}
         </tbody>
       </Table>
-      {/* <button onClick={() => handleLoadMore()}>Load more</button> */}
+      <button onClick={() => handleLoadMore()}>Load more</button>
     </div>
   );
 };
