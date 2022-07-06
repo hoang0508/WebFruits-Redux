@@ -1,0 +1,19 @@
+.cart {
+  &-main {
+    padding: 40px 0;
+    &--left {
+      width: 60%;
+    }
+    &-right {
+      width: 40%;
+      background-color: #fff;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      border-radius: 5px;
+    }
+  }
+  &-main .container {
+    display: flex;
+    align-items: center;
+    gap: 0 40px;
+  }
+}

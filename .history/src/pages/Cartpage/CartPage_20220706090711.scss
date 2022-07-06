@@ -1,0 +1,16 @@
+.cart {
+  &-main {
+    padding: 40px 0;
+    &--left {
+      width: 60%;
+    }
+    &-right {
+      width: 40%;
+    }
+  }
+  &-main .container {
+    display: flex;
+    align-items: center;
+    gap: 0 40px;
+  }
+}

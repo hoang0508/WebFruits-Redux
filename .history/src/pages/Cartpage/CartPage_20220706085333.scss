@@ -1,0 +1,13 @@
+.cart {
+  &-main .container {
+    display: flex;
+    align-items: center;
+    gap: 0 40px;
+  }
+  &-left {
+    width: 70%;
+  }
+  &-right {
+    width: 30%;
+  }
+}
