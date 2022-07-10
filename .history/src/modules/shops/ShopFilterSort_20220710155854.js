@@ -1,26 +1,26 @@
 import { Select } from "components/Select";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getData } from "redux/products/productSlice";
 import { productSortName, productSortPrice } from "utils/contains";
 
 const ShopFilterSort = () => {
   const [sort, setSort] = useState();
   const dispatch = useDispatch();
-
-  // Change sort
+  const { data } = useSelector((state) => state.products);
+  console.log(
+    "🚀 ~ file: ShopFilterSort.js ~ line 11 ~ ShopFilterSort ~ data",
+    data
+  );
   const handleChangeSort = (e) => {
+    const demo = data.slice().sort((a, b) => (a.name > b.name ? 1 : -1));
+    console.log(
+      "🚀 ~ file: ShopFilterSort.js ~ line 17 ~ handleChangeSort ~ demo",
+      demo
+    );
     let key = e.target.value;
     switch (key) {
       case (key = productSortPrice.SORT_INCREA):
-        dispatch(
-          getData({
-            type: "sortPrice",
-            value: e.target.value,
-          })
-        );
-        break;
-      case (key = productSortPrice.SORT_DECREA):
         dispatch(
           getData({
             type: "sortPrice",
@@ -54,8 +54,8 @@ const ShopFilterSort = () => {
           <option value={"0"}>Mặc định</option>
           <option value={productSortPrice.SORT_INCREA}>Giá: Tăng đần</option>
           <option value={productSortPrice.SORT_DECREA}>Giá: giảm đần</option>
-          <option value={productSortName.SORT_NAME}>Tên sp: A-Z</option>
-          <option value={productSortName.SORT_NAME_REVERT}>Tên sp: Z-A</option>
+          <option value={productSortPrice.SORT_NAME}>Tên sp: A-Z</option>
+          <option value={productSortPrice.SORT_NAME_REVERT}>Tên sp: Z-A</option>
         </Select>
       </div>
     </>

@@ -21,9 +21,6 @@ export const productMaxPrice = {
 export const productSortPrice = {
   SORT_INCREA: "INCREA",
   SORT_DECREA: "DECREA",
-};
-
-export const productSortName = {
   SORT_NAME: "NAME",
   SORT_NAME_REVERT: "REVERT",
 };

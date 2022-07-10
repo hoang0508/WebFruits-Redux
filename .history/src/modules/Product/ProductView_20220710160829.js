@@ -78,10 +78,7 @@ const ProductView = () => {
     <div>
       <DashboardHeading title="Product manager"></DashboardHeading>
       <div className="flex justify-between">
-        <Button
-          className="button bg-orange-500 !rounded"
-          to={`/manage/add-product`}
-        >
+        <Button className="button bg-orange-500" to={`/manage/add-product`}>
           Product Add New
         </Button>
         <input

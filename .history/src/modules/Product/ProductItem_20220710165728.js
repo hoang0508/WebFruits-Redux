@@ -23,14 +23,14 @@ const ProductItem = ({ item }) => {
   );
   return (
     <>
-      {loading && (
+      {loading &&
         <>
           <ProductItemLoading />
           <ProductItemLoading />
           <ProductItemLoading />
         </>
-      )}
-      {!loading && (
+      }
+{ !loading &&
         <div
           className="product-item"
           onClick={() => handleNavigateDetail(item.id)}

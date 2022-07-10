@@ -1,9 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {
-  productMaxPrice,
-  productSortName,
-  productSortPrice,
-} from "utils/contains";
+import { productMaxPrice, productSortPrice } from "utils/contains";
 
 const productSlice = createSlice({
   name: "products",
@@ -83,7 +79,7 @@ const productSlice = createSlice({
         let result;
         let x = a.name;
         let y = b.name;
-        if (action.payload === productSortName.SORT_NAME) {
+        if (action.payload === productSortPrice.SORT_NAME) {
           result = x > y;
         } else {
           result = x < y;

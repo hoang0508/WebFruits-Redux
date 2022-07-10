@@ -17,20 +17,15 @@ const ProductItem = ({ item }) => {
     navigate(`/details/${item.id}`);
   };
   const { loading } = useSelector((state) => state.products);
-  console.log(
-    "🚀 ~ file: ProductItem.js ~ line 20 ~ ProductItem ~ loading",
-    loading
-  );
   return (
     <>
-      {loading && (
+      {!loading ? (
         <>
           <ProductItemLoading />
           <ProductItemLoading />
           <ProductItemLoading />
         </>
-      )}
-      {!loading && (
+      ) : (
         <div
           className="product-item"
           onClick={() => handleNavigateDetail(item.id)}

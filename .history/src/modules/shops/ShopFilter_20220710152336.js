@@ -2,6 +2,7 @@ import React from "react";
 import ShopFilterPrice from "./ShopFilterPrice";
 import ShopFilterProduct from "./ShopFilterProduct";
 import ShopFilterSort from "./ShopFilterSort";
+import "./ShopFilter.scss";
 import styled from "styled-components";
 
 const ShopFilterStyles = styled.div`

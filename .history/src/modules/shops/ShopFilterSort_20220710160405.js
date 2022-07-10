@@ -20,14 +20,6 @@ const ShopFilterSort = () => {
           })
         );
         break;
-      case (key = productSortPrice.SORT_DECREA):
-        dispatch(
-          getData({
-            type: "sortPrice",
-            value: e.target.value,
-          })
-        );
-        break;
       case (key = productSortName.SORT_NAME):
         dispatch(
           getData({

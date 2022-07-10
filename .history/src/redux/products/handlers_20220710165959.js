@@ -25,6 +25,7 @@ export default function* handleProduct({
     value: "",
   },
 }) {
+  yield put(setLoading(true));
   switch (payload.type) {
     case "id":
       const reponseId = yield call(requestProductId, payload.value);
@@ -57,6 +58,7 @@ export default function* handleProduct({
       const responsePrice = yield call(requestProductPrice, payload.value);
       yield put(setDataFilterPrice(responsePrice));
       yield put(setLoading(false));
+
       break;
     case "sortPrice":
       const reponseSort = payload.value;

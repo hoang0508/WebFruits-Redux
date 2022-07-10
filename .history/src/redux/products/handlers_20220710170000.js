@@ -25,6 +25,7 @@ export default function* handleProduct({
     value: "",
   },
 }) {
+  yield put(setLoading(true));
   switch (payload.type) {
     case "id":
       const reponseId = yield call(requestProductId, payload.value);
