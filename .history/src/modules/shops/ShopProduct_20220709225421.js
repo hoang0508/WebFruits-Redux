@@ -15,6 +15,8 @@ const ShopProduct = () => {
   const status = data.map((item) => item.status);
   const dataStatus = [...new Set(status)];
 
+  const demo = data.map((item) => Number(item.priceNew)).sort((a, b) => a - b);
+  console.log("🚀 ~ file: ShopProduct.js ~ line 19 ~ ShopProduct ~ demo", demo);
   // handleChange
   const handleChangeStatus = (e) => {
     if (e.target.value === "0")

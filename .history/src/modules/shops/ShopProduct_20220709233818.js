@@ -11,6 +11,7 @@ const ShopProduct = () => {
 
   // data
   const { data } = useSelector((state) => state.products);
+  console.log("🚀 ~ file: ShopProduct.js ~ line 14 ~ ShopProduct ~ data", data);
 
   const status = data.map((item) => item.status);
   const dataStatus = [...new Set(status)];

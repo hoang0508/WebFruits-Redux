@@ -14,7 +14,6 @@ const ShopProduct = () => {
 
   const status = data.map((item) => item.status);
   const dataStatus = [...new Set(status)];
-
   // handleChange
   const handleChangeStatus = (e) => {
     if (e.target.value === "0")

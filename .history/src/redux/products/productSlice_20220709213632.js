@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { productMaxPrice, productSortPrice } from "utils/contains";
+import { productMaxPrice } from "utils/contains";
 
 const productSlice = createSlice({
   name: "products",
@@ -13,7 +13,6 @@ const productSlice = createSlice({
       ...state,
       data: action.payload,
     }),
-    // data details
     setDataDetails: (state, action) => ({
       ...state,
       dataDetails: action.payload,
@@ -22,57 +21,31 @@ const productSlice = createSlice({
       ...state,
       data: state.data.filter((item) => item.id !== action.payload),
     }),
-    // Status data
     setDataStatus: (state, action) => ({
       ...state,
       data: state.data.filter((item) => item.status === action.payload),
     }),
-    // Filter Price
     setDataFilterPrice: (state, action) => ({
       ...state,
       data: state.data.filter((item) => {
         let result;
         switch (action.payload) {
-          case (action.payload = 30):
-            result = productMaxPrice.PRODUCT_45;
-            break;
-          case (action.payload = 50):
-            result = productMaxPrice.PRODUCT_80;
-            break;
-          case (action.payload = 80):
-            result = productMaxPrice.PRODUCT_100;
-            break;
-          case (action.payload = 100):
-            result = productMaxPrice.PRODUCT_150;
-            break;
+          case action.payload === 30:
+            return (result = productMaxPrice.PRODUCT_45);
+          case action.payload === 50:
+            return (result = productMaxPrice.PRODUCT_80);
+          case action.payload === 80:
+            return (result = productMaxPrice.PRODUCT_100);
+          case action.payload === 100:
+            return (result = productMaxPrice.PRODUCT_150);
           default:
-            result = 30;
             break;
         }
         return (
-          action.payload < Number(item.priceNew) &&
-          Number(item.priceNew) <= result
+          action.payload < Number(item.priceNew) && Number(item.priceNew) < 80
         );
       }),
     }),
-    // Sort Price
-    setDataSortPrice: (state, action) => {
-      return {
-        ...state,
-        data: state.data.slice().sort((a, b) => {
-          let result;
-          let x = a.priceNew;
-          let y = b.priceNew;
-          if (action.payload === productSortPrice.SORT_INCREA) {
-            result = x > y;
-          } else {
-            result = x < y;
-          }
-          return result ? 1 : -1;
-        }),
-      };
-    },
-    // Loading
     setLoading: (state, action) => ({
       ...state,
       loading: action.payload,
@@ -90,7 +63,6 @@ export const {
   setDataStatus,
   setLoading,
   setDataFilterPrice,
-  setDataSortPrice,
 } = productSlice.actions;
 
 export default productSlice.reducer;

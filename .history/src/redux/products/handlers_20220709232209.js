@@ -4,13 +4,13 @@ import {
   setDataDetails,
   setDataFilter,
   setDataFilterPrice,
-  setDataSortPrice,
   setDataStatus,
   setLoading,
 } from "./productSlice";
 import {
   requestProduct,
   requestProductDelete,
+  requestProductFilter,
   requestProductId,
   requestProductLimit,
   requestProductPrice,
@@ -56,10 +56,7 @@ export default function* handleProduct({
       const responsePrice = yield call(requestProductPrice, payload.value);
       yield put(setDataFilterPrice(responsePrice));
       break;
-    case "sortPrice":
-      const reponseSort = payload.value;
-      yield put(setDataSortPrice(reponseSort));
-      break;
+    case "sortPrice"
     default:
       break;
   }

@@ -13,7 +13,6 @@ const productSlice = createSlice({
       ...state,
       data: action.payload,
     }),
-    // data details
     setDataDetails: (state, action) => ({
       ...state,
       dataDetails: action.payload,
@@ -22,12 +21,10 @@ const productSlice = createSlice({
       ...state,
       data: state.data.filter((item) => item.id !== action.payload),
     }),
-    // Status data
     setDataStatus: (state, action) => ({
       ...state,
       data: state.data.filter((item) => item.status === action.payload),
     }),
-    // Filter Price
     setDataFilterPrice: (state, action) => ({
       ...state,
       data: state.data.filter((item) => {
@@ -55,7 +52,6 @@ const productSlice = createSlice({
         );
       }),
     }),
-    // Sort Price
     setDataSortPrice: (state, action) => {
       return {
         ...state,
@@ -72,7 +68,6 @@ const productSlice = createSlice({
         }),
       };
     },
-    // Loading
     setLoading: (state, action) => ({
       ...state,
       loading: action.payload,

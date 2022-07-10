@@ -1,6 +1,5 @@
-import { Select } from "components/Select";
 import ProductItem from "modules/Product/ProductItem";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getData } from "redux/products/productSlice";
 import { productStatus } from "utils/contains";
@@ -14,7 +13,6 @@ const ShopProduct = () => {
 
   const status = data.map((item) => item.status);
   const dataStatus = [...new Set(status)];
-
   // handleChange
   const handleChangeStatus = (e) => {
     if (e.target.value === "0")
@@ -39,7 +37,11 @@ const ShopProduct = () => {
         <div>
           We found <strong>{data.length}</strong> products available for you
         </div>
-        <Select onChange={(e) => handleChangeStatus(e)} value={queryStatus}>
+        <select
+          className="w-[200px] p-[5px] border border-gray-300 rounded-md"
+          onChange={(e) => handleChangeStatus(e)}
+          value={queryStatus}
+        >
           <option value="0">All</option>
           {dataStatus.length > 0 &&
             dataStatus.map((status, index) => (
@@ -49,7 +51,7 @@ const ShopProduct = () => {
                 {status === productStatus.PRODUCT_SALE && "Sale"}
               </option>
             ))}
-        </Select>
+        </select>
       </div>
       <div className="grid grid-cols-3 gap-5">
         {data &&

@@ -6,7 +6,6 @@ import ShopFilterSort from "./ShopFilterSort";
 
 const ShopFilter = () => {
   const dispatch = useDispatch();
-
   return (
     <div className="bg-white shadow-lg w-[30%] p-4">
       <ShopFilterProduct />

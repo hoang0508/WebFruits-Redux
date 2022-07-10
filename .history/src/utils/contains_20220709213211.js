@@ -17,8 +17,3 @@ export const productMaxPrice = {
   PRODUCT_100: 100,
   PRODUCT_150: 150,
 };
-
-export const productSortPrice = {
-  SORT_INCREA: "INCREA",
-  SORT_DECREA: "DECREA",
-};

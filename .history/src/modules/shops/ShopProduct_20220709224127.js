@@ -1,6 +1,6 @@
 import { Select } from "components/Select";
 import ProductItem from "modules/Product/ProductItem";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getData } from "redux/products/productSlice";
 import { productStatus } from "utils/contains";
@@ -14,7 +14,6 @@ const ShopProduct = () => {
 
   const status = data.map((item) => item.status);
   const dataStatus = [...new Set(status)];
-
   // handleChange
   const handleChangeStatus = (e) => {
     if (e.target.value === "0")

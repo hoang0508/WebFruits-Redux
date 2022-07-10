@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { productMaxPrice, productSortPrice } from "utils/contains";
+import { productMaxPrice } from "utils/contains";
 
 const productSlice = createSlice({
   name: "products",
@@ -13,7 +13,6 @@ const productSlice = createSlice({
       ...state,
       data: action.payload,
     }),
-    // data details
     setDataDetails: (state, action) => ({
       ...state,
       dataDetails: action.payload,
@@ -22,12 +21,10 @@ const productSlice = createSlice({
       ...state,
       data: state.data.filter((item) => item.id !== action.payload),
     }),
-    // Status data
     setDataStatus: (state, action) => ({
       ...state,
       data: state.data.filter((item) => item.status === action.payload),
     }),
-    // Filter Price
     setDataFilterPrice: (state, action) => ({
       ...state,
       data: state.data.filter((item) => {
@@ -55,24 +52,14 @@ const productSlice = createSlice({
         );
       }),
     }),
-    // Sort Price
-    setDataSortPrice: (state, action) => {
-      return {
-        ...state,
-        data: state.data.slice().sort((a, b) => {
-          let result;
-          let x = a.priceNew;
-          let y = b.priceNew;
-          if (action.payload === productSortPrice.SORT_INCREA) {
-            result = x > y;
-          } else {
-            result = x < y;
-          }
-          return result ? 1 : -1;
+    setDataSortPrice: (state, action) => ({
+      ...state,
+      data: state.data
+        .map((item) => Number(item.priceNew))
+        .sort((a, b) => {
+          return action.payload === "" ? a - b : b - a;
         }),
-      };
-    },
-    // Loading
+    }),
     setLoading: (state, action) => ({
       ...state,
       loading: action.payload,
@@ -90,7 +77,6 @@ export const {
   setDataStatus,
   setLoading,
   setDataFilterPrice,
-  setDataSortPrice,
 } = productSlice.actions;
 
 export default productSlice.reducer;
