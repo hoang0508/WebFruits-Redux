@@ -1,7 +1,0 @@
-import { takeLatest } from "redux-saga/effects";
-import handlerUser from "./handlers";
-import { getUser } from "./userSlice";
-export default function* userSaga() {
-  yield console.log("abc");
-  yield takeLatest(getUser.type, handlerUser);
-}
