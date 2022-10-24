@@ -1,24 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import "./Review.scss";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
-import {
-  addDoc,
-  collection,
-  doc,
-  serverTimestamp,
-  updateDoc,
-} from "firebase/firestore";
+import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import { db } from "firebases/Firebase-config";
 import { getDataReview } from "redux/reviews/reviewSlice";
 import parse from "html-react-parser";
-import { Button } from "components/button";
 import { AiTwotoneLike } from "react-icons/ai";
 import { getLikeData } from "redux/likes/likeSlice";
+import ReviewWrite from "./ReviewWrite";
+
 const Review = () => {
   const [tab, setTab] = useState(1);
   const handleClickTab = (index) => {
@@ -33,16 +25,11 @@ const Review = () => {
   // dispatch
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getDataReview());
-  }, [dispatch]);
-
   const review = useSelector((state) => state.reviews.dataReview);
   // filter kiểm tra idProduct = id
   const data = review.filter((item) => item.idProduct === id);
 
   const { likeData } = useSelector((state) => state.likes);
-  console.log("🚀 ~ file: Review.js ~ line 45 ~ Review ~ likeData", likeData);
 
   //
   const demo = likeData
@@ -57,22 +44,10 @@ const Review = () => {
     dispatch(getLikeData());
   }, [dispatch]);
 
-  // const demo1 = likeData
-  //   .filter((item) => item[0]?.["0"]?.userId === userInfo?.id)
-  //   .map((item) => item.like);
-  // console.log(
-  //   "🚀 ~ file: Review.js ~ line 62 ~ Review ~ demo1",
-  //   demo1.join("")
-  // );
-
   const demo2 = likeData
     .filter((item) => item?.userId === userInfo?.uid)
     .map((item) => item.id)
     .join("");
-
-  // useEffect(() => {
-  //   setToggleLike(!toggleLike);
-  // }, [toggleLike]);
 
   const handleClickLike = async () => {
     setToggleLike(toggleLike);
@@ -103,6 +78,7 @@ const Review = () => {
       addLikeDB();
     }
   };
+
   return (
     <div className="review">
       <div className="container">
@@ -131,9 +107,7 @@ const Review = () => {
                 ? "review-content--desc active-content"
                 : "review-content--desc"
             }`}
-          >
-            {/* {item.content} */}
-          </div>
+          ></div>
           <div
             className={`${
               tab === 2
@@ -143,7 +117,9 @@ const Review = () => {
           >
             <h3 className="review__heading">List review</h3>
             {data.length <= 0 && (
-              <div className="mb-3 font-medium">Chưa có bình luận nào !!</div>
+              <div className="mb-3 font-medium">
+                Hiện sản phẩm chưa có bình luận nào !!
+              </div>
             )}
             <div className="review-customer__list">
               {data &&
@@ -203,58 +179,10 @@ const Review = () => {
                     )
                 )}
             </div>
-            <WriteForm id={id} userInfo={userInfo} />
+            <ReviewWrite id={id} userInfo={userInfo} />
           </div>
         </div>
       </div>
-    </div>
-  );
-};
-
-const WriteForm = ({ id, userInfo, like }) => {
-  const [content, setContent] = useState("");
-  // useForm
-  const { handleSubmit } = useForm({
-    mode: "onChange",
-  });
-  const handleSubmitReview = async (values) => {
-    const colRef = collection(db, "review");
-    await addDoc(colRef, {
-      idProduct: id,
-      userId: userInfo.uid,
-      username: userInfo?.displayName,
-      content,
-      createAt: serverTimestamp(),
-    });
-  };
-  return (
-    <div className="write">
-      <h3 className="review__heading">Write A review</h3>
-      {userInfo?.displayName ? (
-        <form
-          className="write-form"
-          onSubmit={handleSubmit(handleSubmitReview)}
-        >
-          <div className="write-form--group w-full">
-            <ReactQuill
-              className="w-full"
-              theme="snow"
-              name="content"
-              value={content}
-              onChange={setContent}
-            />
-          </div>
-          <button type="submit" className="button button--secondary">
-            Submit review
-          </button>
-        </form>
-      ) : (
-        <div>
-          <Button to="/sign-in" className="button bg-orange-500 w-[250px]">
-            Mời bạn đăng nhập!!
-          </Button>
-        </div>
-      )}
     </div>
   );
 };

@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import { getData, getDataId } from "redux/products/productSlice";
+import { getDataReview } from "redux/reviews/reviewSlice";
 
 import bannerDetails from "../../assets/img/page-banner-5.jpg";
 import "./Detailpage.scss";
@@ -20,6 +21,10 @@ const Detailpage = () => {
       })
     );
   }, [dispatch, id]);
+
+  useEffect(() => {
+    dispatch(getDataReview());
+  }, [dispatch]);
   return (
     <div className="details">
       <div
@@ -31,7 +36,7 @@ const Detailpage = () => {
       </div>
       <div className="details-list">
         <div className="container">
-          <Productdetails />
+          <Productdetails id={id} />
         </div>
       </div>
       <Review />

@@ -1,4 +1,3 @@
-@import "../../styles/index.scss";
 .review {
   padding: 20px 0 40px;
   &-tab {
@@ -8,14 +7,14 @@
     margin-bottom: 10px;
     cursor: pointer;
     &--title {
-      border: 1px solid $border-color;
+      border: 1px solid var(--border-color);
       padding: 15px 30px;
     }
   }
   &-content {
     max-width: 800px;
     padding: 20px;
-    border: 1px solid $border-color;
+    border: 1px solid var(--border-color);
     &--desc {
       display: none;
     }
@@ -28,7 +27,7 @@
     padding-right: 20px;
     font-size: 23px;
     font-weight: 700;
-    color: $text-color--tx;
+    color: var(--text-color--tx);
     margin-bottom: 20px;
     position: relative;
     &::before {
@@ -36,7 +35,7 @@
       position: absolute;
       width: 50px;
       height: 3px;
-      background-color: $primary-color;
+      background-color: var(--primary-color);
       left: 100%;
       top: 50%;
     }
@@ -44,6 +43,8 @@
   &-customer {
     &__item {
       margin-bottom: 25px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 10px;
     }
     &__people {
       display: flex;
@@ -63,20 +64,26 @@
       }
     }
     &__name {
-      color: $text-color--tx;
+      color: var(--text-color--tx);
       font-size: 18px;
     }
     &__date {
-      color: $secondary-color;
+      color: var(--secondary-color);
       margin-bottom: 10px;
     }
     &__desc {
-      color: $text-color--tx;
+      color: var(--text-color--tx);
       line-height: 1.5;
       margin-bottom: 15px;
+      p img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
     }
     &__star {
-      color: $secondary-color;
+      color: var(--secondary-color);
       display: flex;
       align-items: center;
     }
@@ -84,7 +91,7 @@
 }
 
 .active-tabs {
-  background-color: $primary-color;
+  background-color: var(--primary-color);
   color: #fff;
   transition: all 0.25s linear;
 }
@@ -103,13 +110,13 @@
     }
     &--input,
     &--textarea {
-      border: 1px solid $border-color;
+      border: 1px solid var(--border-color);
       padding: 12px;
       border-radius: 5px;
       width: 100%;
       transition: all 0.25s ease;
       &:focus {
-        border-color: $primary-color;
+        border-color: var(--primary-color);
       }
     }
   }

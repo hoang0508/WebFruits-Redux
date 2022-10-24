@@ -1,6 +1,5 @@
-@import "../../../src/styles/index.scss";
 .footer {
-  background-color: $bg-footer;
+  background-color: var(--bg-footer);
   padding: 80px 0;
   &-list {
     display: grid;
@@ -9,7 +8,7 @@
   }
   &-logo {
     span {
-      color: $primary-color;
+      color: var(--primary-color);
       font-size: 45px;
       font-weight: 700;
       display: inline-block;
@@ -17,13 +16,13 @@
     }
     &--desc {
       line-height: 1.6;
-      color: $text-color--tx;
+      color: var(--text-color--tx);
       margin-bottom: 20px;
     }
   }
   &-title {
     margin-bottom: 25px;
-    color: $text-color--tx;
+    color: var(--text-color--tx);
     font-size: 20px;
   }
   &-item--instagram {
@@ -73,7 +72,7 @@
   &-link {
     display: inline-block;
     padding-bottom: 20px;
-    color: $text-color--tx;
+    color: var(--text-color--tx);
   }
   &-info {
     &--item {
@@ -83,12 +82,12 @@
       margin-bottom: 30px;
     }
     &--icon {
-      color: $primary-color;
+      color: var(--primary-color);
       font-size: 25px;
     }
     &--name {
       margin-bottom: 10px;
-      color: $text-color--tx;
+      color: var(--text-color--tx);
     }
   }
   &-coppy {
@@ -103,7 +102,7 @@
     &--license {
       font-size: 14px;
       span {
-        color: $primary-color;
+        color: var(--primary-color);
         font-size: 16px;
       }
     }

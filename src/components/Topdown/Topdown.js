@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { FaArrowUp } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 import "./Topdown.scss";
 const Topdown = () => {
   const downRef = useRef(null);
@@ -16,10 +17,21 @@ const Topdown = () => {
       window.removeEventListener("scroll", handleDownup);
     };
   }, []);
+
+  // handle Click top
+  const handleClickTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
-    <a href="!#" className="down" ref={downRef}>
+    <NavLink
+      to="#"
+      className="down"
+      ref={downRef}
+      onClick={() => handleClickTop()}
+    >
       <FaArrowUp />
-    </a>
+    </NavLink>
   );
 };
 

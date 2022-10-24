@@ -33,21 +33,27 @@ const ProductAddNews = () => {
       priceNew: "",
       priceOld: "",
       image: "",
+      image1: "",
       status: 1,
     },
   });
   //hook useImagefirebase
   const {
     progress,
+    progress1,
+    progress2,
+    progress3,
     image,
+    image1,
+    image2,
+    image3,
     handleResetUpload,
     handleDeleteImage,
     handleSelectImage,
+    handleSelectImage1,
+    handleSelectImage2,
+    handleSelectImage3,
   } = useFirebase(setValue, getValues);
-  console.log(
-    "🚀 ~ file: ProductAddNews.js ~ line 38 ~ ProductAddNews ~ image",
-    image
-  );
 
   // watch status
   const watchStatus = watch("status");
@@ -63,6 +69,9 @@ const ProductAddNews = () => {
     await addDoc(colRef, {
       ...cloneValues,
       image,
+      image1,
+      image2,
+      image3,
       content,
       createAt: serverTimestamp(),
     });
@@ -80,6 +89,7 @@ const ProductAddNews = () => {
     });
     handleResetUpload();
   };
+
   return (
     <div>
       <DashboardHeading
@@ -141,6 +151,41 @@ const ProductAddNews = () => {
               </div>
             </div>
           </Field>
+        </div>
+        <div className="mb-6">
+          <Label>Image thumb</Label>
+          <div className="flex gap-x-4 w-full mt-3">
+            <div className="w-[25%]">
+              <ImageUpload
+                type="file"
+                name="image1"
+                image={image1}
+                onChange={(e) => handleSelectImage1(e)}
+                handleDeleteImage={handleDeleteImage}
+                progress={progress1}
+              ></ImageUpload>
+            </div>
+            <div className="w-[25%]">
+              <ImageUpload
+                type="file"
+                name="image2"
+                image={image2}
+                onChange={(e) => handleSelectImage2(e)}
+                handleDeleteImage={handleDeleteImage}
+                progress={progress2}
+              ></ImageUpload>
+            </div>
+            <div className="w-[25%]">
+              <ImageUpload
+                type="file"
+                name="image3"
+                image={image3}
+                onChange={(e) => handleSelectImage3(e)}
+                handleDeleteImage={handleDeleteImage}
+                progress={progress3}
+              ></ImageUpload>
+            </div>
+          </div>
         </div>
         <div className="form-layout">
           <Field>

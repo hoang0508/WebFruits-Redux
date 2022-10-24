@@ -1,4 +1,3 @@
-@import "../../../styles/index.scss";
 .LastestBlog {
   padding: 100px 0;
   &-list {
@@ -24,7 +23,7 @@
       color: #fff;
     }
     &:hover .LastestBlog-date {
-      background-color: $primary-color;
+      background-color: var(--primary-color);
       color: #fff;
     }
     &:hover .LastestBlog-images img {
@@ -59,7 +58,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      background-color: $primary-color;
+      background-color: var(--primary-color);
       width: 100%;
       height: 0;
       z-index: -1;
@@ -75,7 +74,7 @@
     transition: all 0.3s linear;
   }
   &-more {
-    color: $primary-color;
+    color: var(--primary-color);
     transition: all 0.3s linear;
   }
 }
